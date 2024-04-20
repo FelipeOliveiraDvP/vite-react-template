@@ -32,7 +32,6 @@ export const VerifyCodeRequestSchema = z.object({
   code: z.coerce
     .number({ required_error: ZOD_REQUIRED_MESSAGE, invalid_type_error: ZOD_INVALID_TYPE_MESSAGE })
     .int({ message: ZOD_INVALID_TYPE_MESSAGE })
-    .gte(1000, { message: ZOD_INVALID_TYPE_MESSAGE })
     .lte(9999, { message: ZOD_INVALID_TYPE_MESSAGE }),
 });
 
@@ -46,8 +45,19 @@ export const ResetPasswordRequestSchema = z
     path: ['password_confirm'],
   });
 
+export const AuthUserSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: EmailSchema,
+  role: z.object({
+    id: z.string(),
+    name: z.string(),
+  }),
+});
+
 export type LoginRequest = z.infer<typeof LoginRequestSchema>;
 export type LoginResponse = z.infer<typeof LoginResponseSchema>;
 export type RecoveryRequest = z.infer<typeof RecoveryRequestSchema>;
 export type VerifyCodeRequest = z.infer<typeof VerifyCodeRequestSchema>;
 export type ResetPasswordRequest = z.infer<typeof ResetPasswordRequestSchema>;
+export type AuthUser = z.infer<typeof AuthUserSchema>;

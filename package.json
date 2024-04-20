@@ -17,7 +17,8 @@
     "test": "npm run typecheck && npm run prettier && npm run lint && npm run vitest && npm run build",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "mock:server": "json-server --watch ./mock/db.json --port 5000"
   },
   "dependencies": {
     "@mantine/core": "7.8.0",
@@ -57,6 +58,7 @@
     "husky": "^9.0.11",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^24.0.0",
+    "json-server": "^1.0.0-alpha.23",
     "postcss": "^8.4.35",
     "postcss-preset-mantine": "1.14.4",
     "postcss-simple-vars": "^7.0.1",
@@ -67,7 +69,7 @@
     "stylelint": "^16.2.1",
     "stylelint-config-standard-scss": "^13.0.0",
     "typescript": "^5.4.2",
-    "vite": "^5.1.6",
+    "vite": "^5.2.10",
     "vite-tsconfig-paths": "^4.3.1",
     "vitest": "^1.3.1"
   },

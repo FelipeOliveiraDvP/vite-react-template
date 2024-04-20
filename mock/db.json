@@ -1,0 +1,226 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Administrador",
+      "email": "admin@email.com",
+      "phone_number": "11987694321",
+      "par_q_form": false,
+      "role": {
+        "id": "1",
+        "name": "Administrador"
+      },
+      "building": null,
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    },
+    {
+      "id": "2",
+      "name": "Responsável",
+      "email": "responsible@email.com",
+      "phone_number": "11987694321",
+      "par_q_form": true,
+      "role": {
+        "id": "3",
+        "name": "Responsável"
+      },
+      "building": {
+        "id": "1",
+        "name": "Condomínio Asa Branca"
+      },
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    },
+    {
+      "id": "3",
+      "name": "Condômino",
+      "email": "responsible@email.com",
+      "phone_number": "11987694321",
+      "par_q_form": true,
+      "role": {
+        "id": "2",
+        "name": "Condômino"
+      },
+      "building": {
+        "id": "1",
+        "name": "Condomínio Asa Branca"
+      },
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "name": "Administrador"
+    },
+    {
+      "id": "2",
+      "name": "Condômino"
+    },
+    {
+      "id": "3",
+      "name": "Responsável"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "1",
+      "name": "Condomínio Asa Branca",
+      "phone_number": "11987694321",
+      "zip": "00000000",
+      "street": "Rua das Árvores",
+      "number": "123",
+      "district": "Vila Eva",
+      "city": "São Paulo",
+      "state": "SP",
+      "access_code": "HJSDER",
+      "responsible": [
+        {
+          "id": "2",
+          "name": "Responsável",
+          "email": "responsible@email.com",
+          "phone_number": "11987694321",
+          "role": {
+            "id": "3",
+            "name": "Responsável"
+          }
+        }
+      ],
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Assunto de exemplo 1",
+      "type": 0,
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    },
+    {
+      "id": "2",
+      "name": "Modalidade de exemplo 2",
+      "type": 1,
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    }
+  ],
+  "warnings": [
+    {
+      "id": "1",
+      "name": "Aviso de exemplo 1",
+      "image_url": "https://picsum.photos/400/400",
+      "description": "lorem ipsum",
+      "building": {
+        "id": "1",
+        "name": "Condomínio Asa Branca"
+      },
+      "categories": [
+        {
+          "id": "1",
+          "name": "Assunto de exemplo 1",
+          "type": 0
+        },
+        {
+          "id": "2",
+          "name": "Modalidade de exemplo 2",
+          "type": 1
+        }
+      ],
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "name": "Atividade de treino 1",
+      "start_date": "2024-04-28T17:01:24z",
+      "file_url": "https://doem.org.br/ba/modelo/arquivos/pdfviewer/0b517cdc5f9850e3782051c82e7f3234?name=lorem-ipsum.pdf",
+      "image_url": "https://picsum.photos/400/400",
+      "categories": [
+        {
+          "id": "1",
+          "name": "Assunto de exemplo 1",
+          "type": 0
+        },
+        {
+          "id": "2",
+          "name": "Modalidade de exemplo 2",
+          "type": 1
+        }
+      ],
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    }
+  ],
+  "communities": [
+    {
+      "id": "1",
+      "name": "Grupo do condomínio 1",
+      "url": "https://mantine.dev/getting-started/",
+      "image_url": "https://picsum.photos/400/400",
+      "building": {
+        "id": "1",
+        "name": "Condomínio Asa Branca"
+      },
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    },
+    {
+      "id": "2",
+      "name": "Grupo do condomínio 2",
+      "url": "https://mantine.dev/getting-started/",
+      "image_url": "https://picsum.photos/400/400",
+      "building": null,
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    }
+  ],
+  "events": [
+    {
+      "id": "1",
+      "name": "Evento do condomínio 1",
+      "url": "https://mantine.dev/getting-started/",
+      "start_date": "2024-04-28T17:01:24z",
+      "image_url": "https://picsum.photos/400/400",
+      "description": "lorem ipsum",
+      "building": {
+        "id": "1",
+        "name": "Condomínio Asa Branca"
+      },
+      "category": {
+        "id": "2",
+        "name": "Modalidade de exemplo 2",
+        "type": 1
+      },
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "name": "Evento do condomínio 1",
+      "url": "https://mantine.dev/getting-started/",
+      "image_url": "https://picsum.photos/400/400",
+      "description": "lorem ipsum",
+      "created_at": "2024-04-20T17:01:24z",
+      "updated_at": "2024-04-20T17:01:24z",
+      "deleted_at": null
+    }
+  ]
+}

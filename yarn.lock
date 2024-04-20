@@ -7121,6 +7121,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-no-comments@npm:^1.1.10":
+  version: 1.1.10
+  resolution: "eslint-plugin-no-comments@npm:1.1.10"
+  checksum: 10c0/75549d56ccc73b7a1ead94efbca80610b6c74a417dc2a3436b87ea938d50eb208977d0ed4a43674f2794cee1d1e8446d07ccdffb76468d05bed8213a0ad61de4
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-react-hooks@npm:^4.6.0":
   version: 4.6.0
   resolution: "eslint-plugin-react-hooks@npm:4.6.0"
@@ -9370,6 +9377,7 @@ __metadata:
     eslint-config-mantine: "npm:3.2.0"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-jsx-a11y: "npm:^6.8.0"
+    eslint-plugin-no-comments: "npm:^1.1.10"
     eslint-plugin-react: "npm:^7.34.0"
     eslint-plugin-react-hooks: "npm:^4.6.0"
     husky: "npm:^9.0.11"

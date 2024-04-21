@@ -2713,6 +2713,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/colors-generator@npm:^7.8.0":
+  version: 7.8.0
+  resolution: "@mantine/colors-generator@npm:7.8.0"
+  peerDependencies:
+    chroma-js: ^2.4.2
+  checksum: 10c0/fa47afb5226e949946945c1a9b8a4fcfc21e6cf70d08ec65eea6eaea2c1191725811cff1364c23095db5aa74fa7b94428813501a5718a8b24b96b7b855ad1df0
+  languageName: node
+  linkType: hard
+
 "@mantine/core@npm:7.8.0":
   version: 7.8.0
   resolution: "@mantine/core@npm:7.8.0"
@@ -5008,6 +5017,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/chroma-js@npm:^2":
+  version: 2.4.4
+  resolution: "@types/chroma-js@npm:2.4.4"
+  checksum: 10c0/8acd341c523fc960686ed9e60f23ae643da35bddf012b4b18cb0d941ee3bf82087262245ffa8c886ea31571cd5dc6eb553e849fab3c0509ea2c3a045a246178c
+  languageName: node
+  linkType: hard
+
 "@types/connect@npm:*":
   version: 3.4.38
   resolution: "@types/connect@npm:3.4.38"
@@ -6506,6 +6522,13 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: 10c0/594754e1303672171cc04e50f6c398ae16128eb134a88f801bf5354fd96f205320f23536a045d9abd8b51024a149696e51231565891d4efdab8846021ecf88e6
+  languageName: node
+  linkType: hard
+
+"chroma-js@npm:^2.4.2":
+  version: 2.4.2
+  resolution: "chroma-js@npm:2.4.2"
+  checksum: 10c0/5657cd10892538c4a41e8bd95524d018c3a43318b26dfb20d572b2084bc6d5af742457a6d5701ddecb4d4eceb99995873b22293c1b396ab0b35ef55a264550c8
   languageName: node
   linkType: hard
 
@@ -10539,6 +10562,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:^19.2.2"
     "@commitlint/config-conventional": "npm:^19.2.2"
+    "@mantine/colors-generator": "npm:^7.8.0"
     "@mantine/core": "npm:7.8.0"
     "@mantine/form": "npm:^7.8.0"
     "@mantine/hooks": "npm:7.8.0"
@@ -10555,12 +10579,14 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6.4.2"
     "@testing-library/react": "npm:^14.2.1"
     "@testing-library/user-event": "npm:^14.5.2"
+    "@types/chroma-js": "npm:^2"
     "@types/react": "npm:^18.2.65"
     "@types/react-dom": "npm:^18.2.21"
     "@typescript-eslint/eslint-plugin": "npm:^7.2.0"
     "@typescript-eslint/parser": "npm:^7.2.0"
     "@vitejs/plugin-react": "npm:^4.2.1"
     axios: "npm:^1.6.8"
+    chroma-js: "npm:^2.4.2"
     clsx: "npm:^2.1.0"
     eslint: "npm:^8.57.0"
     eslint-config-airbnb: "npm:19.0.4"

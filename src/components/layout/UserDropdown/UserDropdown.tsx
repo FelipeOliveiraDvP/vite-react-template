@@ -21,7 +21,7 @@ export function UserDropdown() {
               size={rem(32)}
               styles={(theme) => ({
                 root: {
-                  background: theme.primaryColor,
+                  background: theme.colors.primary[6],
                 },
                 placeholder: {
                   color: theme.white,

@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { AppShell, Box, Burger, Center, Group, Stack } from '@mantine/core';
+import { AppShell, Box, Burger, Center, Group, Image, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 import { UserDropdown } from '@/components/layout/UserDropdown/UserDropdown';
 import { PrivateMenu } from '@/components/layout/PrivateMenu/PrivateMenu';
 
-import classes from './PrivateLayout.module.css';
 import { useAuthContext } from '@/context/auth';
+import logo from '@/assets/logo-white.png';
 
 export function PrivateLayout() {
   const { user } = useAuthContext();
@@ -43,22 +43,18 @@ export function PrivateLayout() {
       </AppShell.Header>
       <AppShell.Navbar>
         <Stack>
-          <Box
-            className={classes.logo}
-            w={{ base: '100%', md: 300, lg: 400 }}
-            h={{ base: 60, md: 70, lg: 80 }}
-          >
+          <Box bg="primary" w={{ base: '100%', md: 300, lg: 400 }} h={{ base: 60, md: 70, lg: 80 }}>
             <Group justify="space-between" p="md" h="100%">
-              <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+              <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" color="white" />
               <Center w={{ md: '100%' }} h={{ md: '100%' }}>
-                Logo
+                <Image src={logo} w={{ base: 58, md: 100 }} />
               </Center>
             </Group>
           </Box>
           <PrivateMenu />
         </Stack>
       </AppShell.Navbar>
-      <AppShell.Main>
+      <AppShell.Main bg="#F8F9FA">
         <Outlet />
       </AppShell.Main>
     </AppShell>

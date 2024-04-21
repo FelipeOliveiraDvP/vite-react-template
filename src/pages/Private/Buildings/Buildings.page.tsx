@@ -1,3 +1,5 @@
+import { Paper } from '@mantine/core';
+
 export function BuildingsPage() {
-  return <div>Condominios</div>;
+  return <Paper>Condomínios</Paper>;
 }

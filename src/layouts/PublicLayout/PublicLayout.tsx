@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { Grid } from '@mantine/core';
+import { BackgroundImage, Grid } from '@mantine/core';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 import { useAuthContext } from '@/context/auth';
-import classes from './PublicLayout.module.css';
+
+import background from '@/assets/background.png';
 
 const { VITE_APP_HOME } = import.meta.env;
 
@@ -17,11 +18,12 @@ export function PublicLayout() {
 
   return (
     <Grid
-      className={classes.wrapper}
-      styles={{ inner: { margin: 0, width: '100%', height: '100%' } }}
+      styles={{ root: { height: '100%' }, inner: { margin: 0, width: '100%', height: '100%' } }}
     >
-      <Grid.Col className={classes.logoColumn} span={{ base: 12, md: 6 }}></Grid.Col>
-      <Grid.Col className={classes.contentColumn} span={{ base: 12, md: 6 }}>
+      <Grid.Col span={{ base: 12, md: 6 }} p={0}>
+        <BackgroundImage src={background} h="100%" />
+      </Grid.Col>
+      <Grid.Col span={{ base: 12, md: 6 }}>
         <Outlet />
       </Grid.Col>
     </Grid>

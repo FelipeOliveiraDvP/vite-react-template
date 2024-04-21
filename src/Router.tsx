@@ -1,17 +1,17 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
-import { PublicLayout } from './layouts/PublicLayout';
-import { PrivateLayout } from './layouts/PrivateLayout';
+import { PublicLayout } from './layouts/PublicLayout/PublicLayout';
+import { PrivateLayout } from './layouts/PrivateLayout/PrivateLayout';
 
-import { LoginPage } from './pages/Public/Login';
-import { RecoveryPage } from './pages/Public/Recovery';
-import { VerifyPage } from './pages/Public/Verify';
-import { ResetPage } from './pages/Public/Reset';
-import { PrivacyPage } from './pages/Public/Privacy';
+import { LoginPage } from './pages/Public/Login/Login.page';
+import { RecoveryPage } from './pages/Public/Recovery/Recovery.page';
+import { VerifyPage } from './pages/Public/Verify/Verify.page';
+import { ResetPage } from './pages/Public/Reset/Reset.page';
+import { PrivacyPage } from './pages/Public/Privacy/Privacy.page';
 
-import { BuildingsPage } from './pages/Private/Buildings';
+import { BuildingsPage } from './pages/Private/Buildings/Buildings.page';
 
-import { NotFoundPage } from './pages/Errors/NotFound';
+import { NotFoundPage } from './pages/Errors/NotFound/NotFound.page';
 
 const { VITE_APP_HOME } = import.meta.env;
 

@@ -1,0 +1,12 @@
+.menuItem {
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md) !important;
+  font-weight: 500;
+  transition: backgroun-color 100ms ease;
+
+  &:hover,
+  &[data-active] {
+    background-color: var(--mantine-primary-color-light);
+    border-right: 4px solid var(--mantine-primary-color-filled);
+    color: var(--mantine-primary-color-filled);
+  }
+}

@@ -10,13 +10,13 @@ import {
   RiWhatsappLine,
 } from 'react-icons/ri';
 
-export interface MenuItem {
+export interface MenuItemProps {
   path: string;
   label: string;
   icon: React.ReactNode;
 }
 
-export const menuItems: MenuItem[] = [
+export const menuItems: MenuItemProps[] = [
   {
     path: '/app/usuarios',
     label: 'Usuários',

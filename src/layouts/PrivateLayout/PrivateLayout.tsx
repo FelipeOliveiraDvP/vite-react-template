@@ -1,13 +1,20 @@
+import { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import { AppShell, Box, Burger, Center, Group, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { Outlet } from 'react-router-dom';
 
-import classes from './styles.module.css';
-import { UserDropdown } from '@/components/auth/UserDropdown';
-import { Menu } from '@/components/layout/Menu';
+import { UserDropdown } from '@/components/layout/UserDropdown/UserDropdown';
+import { PrivateMenu } from '@/components/layout/PrivateMenu/PrivateMenu';
+
+import classes from './PrivateLayout.module.css';
 
 export function PrivateLayout() {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { toggle, close }] = useDisclosure();
+  const location = useLocation();
+
+  useEffect(() => {
+    close();
+  }, [location]);
 
   return (
     <AppShell
@@ -41,7 +48,7 @@ export function PrivateLayout() {
               </Center>
             </Group>
           </Box>
-          <Menu />
+          <PrivateMenu />
         </Stack>
       </AppShell.Navbar>
       <AppShell.Main>

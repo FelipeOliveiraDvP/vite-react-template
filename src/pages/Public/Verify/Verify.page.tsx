@@ -1,5 +1,5 @@
 import { Center } from '@mantine/core';
-import { VerifyForm } from '@/components/auth/VerifyForm';
+import { VerifyForm } from '@/components/auth/VerifyForm/VerifyForm';
 
 export function VerifyPage() {
   return (

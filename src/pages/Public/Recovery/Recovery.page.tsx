@@ -1,5 +1,5 @@
 import { Center } from '@mantine/core';
-import { RecoveryForm } from '@/components/auth/RecoveryForm';
+import { RecoveryForm } from '@/components/auth/RecoveryForm/RecoveryForm';
 
 export function RecoveryPage() {
   return (

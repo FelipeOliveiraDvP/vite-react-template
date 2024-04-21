@@ -1,7 +1,7 @@
 import { Grid } from '@mantine/core';
 import { Outlet } from 'react-router-dom';
 
-import classes from './styles.module.css';
+import classes from './PublicLayout.module.css';
 
 export function PublicLayout() {
   return (

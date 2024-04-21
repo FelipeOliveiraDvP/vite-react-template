@@ -3,7 +3,6 @@ import {
   ZOD_PASS_LENGTH_MESSAGE,
   ZOD_REQUIRED_MESSAGE,
   ZOD_INVALID_EMAIL_MESSAGE,
-  ZOD_INVALID_TYPE_MESSAGE,
   ZOD_PASS_CONFIRM_MESSAGE,
 } from '@/constants';
 
@@ -29,10 +28,9 @@ export const RecoveryRequestSchema = z.object({
 });
 
 export const VerifyCodeRequestSchema = z.object({
-  code: z.coerce
-    .number({ required_error: ZOD_REQUIRED_MESSAGE, invalid_type_error: ZOD_INVALID_TYPE_MESSAGE })
-    .int({ message: ZOD_INVALID_TYPE_MESSAGE })
-    .lte(9999, { message: ZOD_INVALID_TYPE_MESSAGE }),
+  code: z.string().length(4, {
+    message: ZOD_REQUIRED_MESSAGE,
+  }),
 });
 
 export const ResetPasswordRequestSchema = z

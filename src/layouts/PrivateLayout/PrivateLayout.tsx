@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AppShell, Box, Burger, Center, Group, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
@@ -7,14 +7,21 @@ import { UserDropdown } from '@/components/layout/UserDropdown/UserDropdown';
 import { PrivateMenu } from '@/components/layout/PrivateMenu/PrivateMenu';
 
 import classes from './PrivateLayout.module.css';
+import { useAuthContext } from '@/context/auth';
 
 export function PrivateLayout() {
+  const { user } = useAuthContext();
   const [opened, { toggle, close }] = useDisclosure();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     close();
   }, [location]);
+
+  useEffect(() => {
+    if (user === null) navigate('/');
+  }, [user]);
 
   return (
     <AppShell

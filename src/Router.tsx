@@ -10,6 +10,7 @@ import { ResetPage } from './pages/Public/Reset/Reset.page';
 import { PrivacyPage } from './pages/Public/Privacy/Privacy.page';
 
 import { UsersPage } from './pages/Private/Users/Users.page';
+import { UsersResidentPage } from './pages/Private/Users/UsersResident.page';
 import { BuildingsPage } from './pages/Private/Buildings/Buildings.page';
 
 import { NotFoundPage } from './pages/Errors/NotFound/NotFound.page';
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: '/app/usuarios',
         element: <UsersPage />,
+      },
+      {
+        path: '/app/usuarios/:userId',
+        element: <UsersResidentPage />,
       },
       {
         path: '*',

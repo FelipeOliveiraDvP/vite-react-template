@@ -81,9 +81,6 @@ export const theme = createTheme({
       },
     }),
     Title: Title.extend({
-      defaultProps: {
-        mb: 0,
-      },
       styles: {
         root: {
           color: '#495057',

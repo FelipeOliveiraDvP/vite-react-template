@@ -1,5 +1,6 @@
 import { ActionIcon, Center, Checkbox, Pagination, Switch, Table } from '@mantine/core';
 import { RiDeleteBin7Line, RiEyeLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 export function UsersList() {
   return (
@@ -22,8 +23,31 @@ export function UsersList() {
             <Table.Td>Nome Exemplo</Table.Td>
             <Table.Td>(11) 99999-5555</Table.Td>
             <Table.Td>nome.exemplo@email.com</Table.Td>
-            <Table.Td>Condomínio</Table.Td>
+            <Table.Td>Condômino</Table.Td>
             <Table.Td>Condomínio Exemplo</Table.Td>
+            <Table.Td>
+              <Checkbox checked />
+            </Table.Td>
+            <Table.Td>
+              <Switch label="Ativo" />
+            </Table.Td>
+            <Table.Td>
+              <ActionIcon.Group>
+                <ActionIcon component={Link} to="/app/usuarios/123">
+                  <RiEyeLine />
+                </ActionIcon>
+                <ActionIcon>
+                  <RiDeleteBin7Line />
+                </ActionIcon>
+              </ActionIcon.Group>
+            </Table.Td>
+          </Table.Tr>
+          <Table.Tr>
+            <Table.Td>Administrador</Table.Td>
+            <Table.Td>(11) 99999-5555</Table.Td>
+            <Table.Td>admin@email.com</Table.Td>
+            <Table.Td>Administrador</Table.Td>
+            <Table.Td></Table.Td>
             <Table.Td>
               <Checkbox />
             </Table.Td>

@@ -28,7 +28,7 @@ export function PrivateLayout() {
       layout="alt"
       header={{ height: { base: 60, md: 70, lg: 80 } }}
       navbar={{
-        width: { base: 200, md: 300, lg: 400 },
+        width: { base: 200, md: 250, lg: 300 },
         breakpoint: 'sm',
         collapsed: { mobile: !opened },
       }}
@@ -43,7 +43,7 @@ export function PrivateLayout() {
       </AppShell.Header>
       <AppShell.Navbar>
         <Stack>
-          <Box bg="primary" w={{ base: '100%', md: 300, lg: 400 }} h={{ base: 60, md: 70, lg: 80 }}>
+          <Box bg="primary" w={{ base: '100%', md: 250, lg: 300 }} h={{ base: 60, md: 70, lg: 80 }}>
             <Group justify="space-between" p="md" h="100%">
               <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" color="white" />
               <Center w={{ md: '100%' }} h={{ md: '100%' }}>

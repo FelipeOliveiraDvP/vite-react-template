@@ -1,10 +1,13 @@
-import { Button, Group, Select, TextInput } from '@mantine/core';
-import { RiSearch2Line } from 'react-icons/ri';
+import { useDisclosure } from '@mantine/hooks';
+import { Button, Drawer, Group, Select, Stack, TextInput } from '@mantine/core';
+import { RiFilterLine, RiSearch2Line } from 'react-icons/ri';
 import { PRIMARY_COLOR } from '@/theme';
 
 export function UsersFilters() {
-  return (
-    <Group justify="end">
+  const [opened, { open, close }] = useDisclosure(false);
+
+  const filters = (
+    <>
       <Select placeholder="Tipo de usuário" />
       <Select placeholder="Condomínio" />
       <Select placeholder="Situação" />
@@ -13,6 +16,22 @@ export function UsersFilters() {
         rightSection={<RiSearch2Line color={PRIMARY_COLOR} />}
       />
       <Button variant="outline">Limpar Filtros</Button>
-    </Group>
+    </>
+  );
+
+  return (
+    <>
+      <Group justify="end" visibleFrom="md">
+        {filters}
+      </Group>
+
+      <Button variant="outline" onClick={open} leftSection={<RiFilterLine />} hiddenFrom="sm">
+        Exibir Filtros
+      </Button>
+
+      <Drawer opened={opened} onClose={close} title="Filtros">
+        <Stack>{filters}</Stack>
+      </Drawer>
+    </>
   );
 }

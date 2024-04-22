@@ -3,6 +3,8 @@ import {
   ActionIcon,
   Card,
   Drawer,
+  Group,
+  Modal,
   Paper,
   Select,
   Stack,
@@ -91,6 +93,21 @@ export const theme = createTheme({
     Drawer: Drawer.extend({
       defaultProps: {
         position: 'right',
+      },
+    }),
+    Modal: Modal.extend({
+      defaultProps: {
+        centered: true,
+      },
+      styles: {
+        title: {
+          fontWeight: 500,
+        },
+      },
+    }),
+    Group: Group.extend({
+      defaultProps: {
+        gap: 'xs',
       },
     }),
   },

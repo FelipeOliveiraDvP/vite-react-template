@@ -1,11 +1,14 @@
 import { generateColors } from '@mantine/colors-generator';
-import { Card, Paper, Stack, createTheme } from '@mantine/core';
+import { Card, Paper, Select, Stack, createTheme } from '@mantine/core';
+import { RiArrowDownSLine } from 'react-icons/ri';
+
+export const PRIMARY_COLOR = '#FF6600';
 
 export const theme = createTheme({
   primaryColor: 'primary',
   primaryShade: 5,
   colors: {
-    primary: generateColors('#FF6600'),
+    primary: generateColors(PRIMARY_COLOR),
   },
   components: {
     Card: Card.extend({
@@ -22,6 +25,11 @@ export const theme = createTheme({
       defaultProps: {
         withBorder: true,
         p: 'md',
+      },
+    }),
+    Select: Select.extend({
+      defaultProps: {
+        rightSection: <RiArrowDownSLine color={PRIMARY_COLOR} />,
       },
     }),
   },

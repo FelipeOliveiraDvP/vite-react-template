@@ -9,6 +9,7 @@ import { VerifyPage } from './pages/Public/Verify/Verify.page';
 import { ResetPage } from './pages/Public/Reset/Reset.page';
 import { PrivacyPage } from './pages/Public/Privacy/Privacy.page';
 
+import { UsersPage } from './pages/Private/Users/Users.page';
 import { BuildingsPage } from './pages/Private/Buildings/Buildings.page';
 
 import { NotFoundPage } from './pages/Errors/NotFound/NotFound.page';
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: VITE_APP_HOME,
         element: <BuildingsPage />,
+      },
+      {
+        path: '/app/usuarios',
+        element: <UsersPage />,
       },
       {
         path: '*',

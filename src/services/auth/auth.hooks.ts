@@ -16,7 +16,7 @@ export function useLogin() {
   return useMutation({
     mutationFn: authService.login,
     onSuccess(data) {
-      onLogin && onLogin(data, () => navigate(VITE_APP_HOME));
+      onLogin && onLogin(data, () => navigate(VITE_APP_HOME || '/app/usuarios'));
     },
     onError(error) {
       return Promise.reject(getFormErrors(error as AxiosError));
@@ -60,7 +60,7 @@ export function useResetPassword() {
     mutationFn: authService.resetPassword,
     onSuccess(data) {
       if (!user) {
-        onLogin && onLogin(data, () => navigate(VITE_APP_HOME));
+        onLogin && onLogin(data, () => navigate(VITE_APP_HOME || '/app/usuarios'));
         return;
       }
 

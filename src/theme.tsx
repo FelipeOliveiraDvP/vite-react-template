@@ -1,7 +1,9 @@
 import { generateColors } from '@mantine/colors-generator';
+import { RiArrowDownSLine } from 'react-icons/ri';
 import {
   ActionIcon,
   Card,
+  Center,
   Drawer,
   Group,
   Modal,
@@ -12,7 +14,6 @@ import {
   Title,
   createTheme,
 } from '@mantine/core';
-import { RiArrowDownSLine } from 'react-icons/ri';
 
 export const PRIMARY_COLOR = '#FF6600';
 
@@ -28,14 +29,46 @@ export const theme = createTheme({
     primary: generateColors(PRIMARY_COLOR),
   },
   components: {
+    ActionIcon: ActionIcon.extend({
+      defaultProps: {
+        variant: 'subtle',
+        size: 'lg',
+      },
+      styles: {
+        icon: {
+          fontSize: 20,
+        },
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         withBorder: true,
+        w: 400,
       },
     }),
-    Stack: Stack.extend({
+    Center: Center.extend({
       defaultProps: {
-        gap: 'md',
+        h: '100%',
+      },
+    }),
+    Drawer: Drawer.extend({
+      defaultProps: {
+        position: 'right',
+      },
+    }),
+    Group: Group.extend({
+      defaultProps: {
+        gap: 'xs',
+      },
+    }),
+    Modal: Modal.extend({
+      defaultProps: {
+        centered: true,
+      },
+      styles: {
+        title: {
+          fontWeight: 500,
+        },
       },
     }),
     Paper: Paper.extend({
@@ -47,6 +80,11 @@ export const theme = createTheme({
     Select: Select.extend({
       defaultProps: {
         rightSection: <RiArrowDownSLine color={PRIMARY_COLOR} />,
+      },
+    }),
+    Stack: Stack.extend({
+      defaultProps: {
+        gap: 'md',
       },
     }),
     Table: Table.extend({
@@ -69,42 +107,11 @@ export const theme = createTheme({
         captionSide: 'bottom',
       },
     }),
-    ActionIcon: ActionIcon.extend({
-      defaultProps: {
-        variant: 'subtle',
-        size: 'lg',
-      },
-      styles: {
-        icon: {
-          fontSize: 20,
-        },
-      },
-    }),
     Title: Title.extend({
       styles: {
         root: {
           color: '#495057',
         },
-      },
-    }),
-    Drawer: Drawer.extend({
-      defaultProps: {
-        position: 'right',
-      },
-    }),
-    Modal: Modal.extend({
-      defaultProps: {
-        centered: true,
-      },
-      styles: {
-        title: {
-          fontWeight: 500,
-        },
-      },
-    }),
-    Group: Group.extend({
-      defaultProps: {
-        gap: 'xs',
       },
     }),
   },

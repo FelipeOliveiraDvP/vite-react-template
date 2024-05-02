@@ -18,7 +18,6 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "prepare": "husky",
-    "mock:server": "json-server --watch ./mock/db.json --port 5000",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
@@ -72,7 +71,7 @@
     "husky": "^9.0.11",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^24.0.0",
-    "json-server": "^1.0.0-alpha.23",
+    "msw": "^2.2.14",
     "postcss": "^8.4.35",
     "postcss-preset-mantine": "1.14.4",
     "postcss-simple-vars": "^7.0.1",
@@ -91,5 +90,10 @@
   "engines": {
     "node": ">=20",
     "pnpm": ">=9"
+  },
+  "msw": {
+    "workerDirectory": [
+      ""
+    ]
   }
 }

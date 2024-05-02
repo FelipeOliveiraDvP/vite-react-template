@@ -1,10 +1,10 @@
-import { AxiosError } from 'axios';
 import { useMutation } from '@tanstack/react-query';
 import { notifications } from '@mantine/notifications';
+import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '@/context/auth';
-import { getFormErrors } from '@/utils';
 import { setAuthToken } from '@/context/auth/helpers';
+import { getFormErrors } from '@/utils';
 import authService from './auth.service';
 
 const { VITE_HOME } = import.meta.env;

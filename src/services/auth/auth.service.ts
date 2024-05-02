@@ -7,16 +7,9 @@ import {
   VerifyCodeRequest,
 } from './auth.schemas';
 import { AUTH_CONTROLLER } from './auth.constants';
-import { fakeLogin } from './auth.helpers';
-
-const { VITE_TEST_AUTH_MODE } = import.meta.env;
 
 export default {
   async login(data: LoginRequest): Promise<LoginResponse> {
-    if (VITE_TEST_AUTH_MODE) {
-      return fakeLogin(data);
-    }
-
     const result = (await axios.post(`${AUTH_CONTROLLER}/login`, data)) as unknown;
 
     return result as LoginResponse;

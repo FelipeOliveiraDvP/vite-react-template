@@ -7,7 +7,7 @@ interface ImportMetaEnv {
   readonly VITE_HOME?: string;
   readonly VITE_STORAGE_KEY?: string;
   readonly VITE_PRIMARY_COLOR?: string;
-  readonly VITE_TEST_AUTH_MODE?: boolean;
+  readonly VITE_MOCK_API?: boolean;
 }
 
 interface ImportMeta {

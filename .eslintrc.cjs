@@ -7,7 +7,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'import/extensions': 'off',
-    'no-console': 'error',
+    'no-console': ['error', { allow: ['error'] }],
     'no-comments/disallowComments': [
       'error',
       {

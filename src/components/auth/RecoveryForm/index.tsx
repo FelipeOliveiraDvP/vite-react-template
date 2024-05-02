@@ -3,6 +3,8 @@ import { Anchor, Button, Card, Stack, Text, TextInput, Title } from '@mantine/co
 import { useForm, zodResolver } from '@mantine/form';
 import { RecoveryRequest, RecoveryRequestSchema, useRecovery } from '@/services/auth';
 
+const { VITE_DESCRIPTION } = import.meta.env;
+
 export function RecoveryForm() {
   const form = useForm<RecoveryRequest>({
     mode: 'uncontrolled',
@@ -23,7 +25,7 @@ export function RecoveryForm() {
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack>
           <Title order={1}>Recuperar Senha</Title>
-          <Text>Gerenciamento esportivo</Text>
+          <Text>{VITE_DESCRIPTION}</Text>
           <TextInput
             {...form.getInputProps('email')}
             label="E-mail"

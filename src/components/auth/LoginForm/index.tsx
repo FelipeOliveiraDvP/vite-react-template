@@ -4,6 +4,8 @@ import { zodResolver } from 'mantine-form-zod-resolver';
 import { useForm } from '@mantine/form';
 import { LoginRequest, LoginRequestSchema, useLogin } from '@/services/auth';
 
+const { VITE_DESCRIPTION } = import.meta.env;
+
 export function LoginForm() {
   const form = useForm<LoginRequest>({
     mode: 'uncontrolled',
@@ -25,7 +27,7 @@ export function LoginForm() {
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack>
           <Title order={1}>Login</Title>
-          <Text>Gerenciamento esportivo</Text>
+          <Text>{VITE_DESCRIPTION}</Text>
           <TextInput
             {...form.getInputProps('email')}
             label="E-mail"

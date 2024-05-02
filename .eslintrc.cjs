@@ -11,7 +11,7 @@ module.exports = {
     'no-comments/disallowComments': [
       'error',
       {
-        allow: ['TODO', 'FIXME', 'NOTE', 'DEBUG'],
+        allow: ['TODO', 'FIXME', 'NOTE', 'DEBUG', 'EX'],
       },
     ],
   },

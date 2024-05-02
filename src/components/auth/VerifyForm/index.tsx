@@ -3,6 +3,8 @@ import { Anchor, Button, Card, PinInput, Stack, Text, Title } from '@mantine/cor
 import { useForm, zodResolver } from '@mantine/form';
 import { VerifyCodeRequest, VerifyCodeRequestSchema, useVerifyCode } from '@/services/auth';
 
+const { VITE_DESCRIPTION } = import.meta.env;
+
 export function VerifyForm() {
   const form = useForm<VerifyCodeRequest>({
     mode: 'uncontrolled',
@@ -23,7 +25,7 @@ export function VerifyForm() {
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack>
           <Title order={1}>Verificação do código</Title>
-          <Text>Gerenciamento esportivo</Text>
+          <Text>{VITE_DESCRIPTION}</Text>
           <PinInput {...form.getInputProps('code')} size="xl" type="number" />
           <Button type="submit" loading={mutation.isPending}>
             Enviar

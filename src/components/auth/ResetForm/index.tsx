@@ -7,6 +7,8 @@ import {
   useResetPassword,
 } from '@/services/auth';
 
+const { VITE_DESCRIPTION } = import.meta.env;
+
 export function ResetForm() {
   const form = useForm<ResetPasswordRequest>({
     mode: 'uncontrolled',
@@ -28,7 +30,7 @@ export function ResetForm() {
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack>
           <Title order={1}>Alterar Senha</Title>
-          <Text>Gerenciamento esportivo</Text>
+          <Text>{VITE_DESCRIPTION}</Text>
           <PasswordInput
             {...form.getInputProps('password')}
             label="Nova Senha"

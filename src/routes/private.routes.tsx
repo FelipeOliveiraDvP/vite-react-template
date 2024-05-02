@@ -7,7 +7,7 @@ import { CustomRouteObject } from './routes.types';
 const UsersPage = lazy(() => import('@/pages/private/Users'));
 const NotFoundPage = lazy(() => import('@/pages/errors/NotFound'));
 
-const { VITE_APP_HOME } = import.meta.env;
+const { VITE_HOME } = import.meta.env;
 
 export const privateRoutes: CustomRouteObject = {
   path: '/app',
@@ -15,10 +15,10 @@ export const privateRoutes: CustomRouteObject = {
   children: [
     {
       path: '/app',
-      element: <Navigate to={VITE_APP_HOME || '/app/usuarios'} />,
+      element: <Navigate to={VITE_HOME || '/app/usuarios'} />,
     },
     {
-      path: VITE_APP_HOME || '/app/usuarios',
+      path: VITE_HOME || '/app/usuarios',
       element: <UsersPage />,
       meta: {
         title: 'Usuários',

@@ -1,13 +1,13 @@
 import { Anchor, ScrollArea, Stack, Text, Title } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
-const { VITE_APP_TITLE } = import.meta.env;
+const { VITE_TITLE } = import.meta.env;
 
 export default function PrivacyPage() {
   return (
     <ScrollArea h="100vh" p="md">
       <Stack gap="md">
-        <Title order={1}>Política de Privacidade do Aplicativo {VITE_APP_TITLE}</Title>
+        <Title order={1}>Política de Privacidade do Aplicativo {VITE_TITLE}</Title>
         <Text size="sm">Data de vigência: 17/11/2023</Text>
 
         <Title order={2}>Não coleta de informações pessoais</Title>
@@ -58,8 +58,8 @@ export default function PrivacyPage() {
 
         <Text>
           Esta Política de Privacidade é parte integrante dos Termos de Uso do
-          {import.meta.env.VITE_APP_TITLE} e se aplica ao uso do Aplicativo por você. Ao utilizar
-          nosso Aplicativo, você concorda com o uso das informações de acordo com esta Política de
+          {import.meta.env.VITE_TITLE} e se aplica ao uso do Aplicativo por você. Ao utilizar nosso
+          Aplicativo, você concorda com o uso das informações de acordo com esta Política de
           Privacidade.
         </Text>
 

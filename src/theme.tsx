@@ -15,7 +15,9 @@ import {
   createTheme,
 } from '@mantine/core';
 
-export const PRIMARY_COLOR = '#FF6600';
+const { VITE_PRIMARY_COLOR } = import.meta.env;
+
+export const PRIMARY_COLOR = VITE_PRIMARY_COLOR || '#1C7ED6';
 
 export const theme = createTheme({
   primaryColor: 'primary',
@@ -26,7 +28,19 @@ export const theme = createTheme({
     },
   },
   colors: {
-    primary: generateColors(PRIMARY_COLOR),
+    primary: generateColors(VITE_PRIMARY_COLOR || '#1C7ED6'),
+    gray: [
+      '#F8F9FA',
+      '#F1F3F5',
+      '#E9ECEF',
+      '#DEE2E6',
+      '#CED4DA',
+      '#ADB5BD',
+      '#868E96',
+      '#495057',
+      '#343A40',
+      '#212529',
+    ],
   },
   components: {
     ActionIcon: ActionIcon.extend({
@@ -79,7 +93,7 @@ export const theme = createTheme({
     }),
     Select: Select.extend({
       defaultProps: {
-        rightSection: <RiArrowDownSLine color={PRIMARY_COLOR} />,
+        rightSection: <RiArrowDownSLine color={VITE_PRIMARY_COLOR || '#1C7ED6'} />,
       },
     }),
     Stack: Stack.extend({
@@ -88,31 +102,31 @@ export const theme = createTheme({
       },
     }),
     Table: Table.extend({
-      styles: {
+      styles: (th) => ({
         th: {
           fontWeight: 500,
           fontSize: 12,
-          color: '#868E96',
+          color: th.colors.gray[6],
           whiteSpace: 'nowrap',
         },
         td: {
           fontWeight: 500,
           fontSize: 14,
-          color: '#495057',
+          color: th.colors.gray[7],
           whiteSpace: 'nowrap',
         },
-      },
+      }),
       defaultProps: {
         verticalSpacing: 'md',
         captionSide: 'bottom',
       },
     }),
     Title: Title.extend({
-      styles: {
+      styles: (th) => ({
         root: {
-          color: '#495057',
+          color: th.colors.gray[7],
         },
-      },
+      }),
     }),
   },
 });

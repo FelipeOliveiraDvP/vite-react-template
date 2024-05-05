@@ -1,4 +1,6 @@
-export interface ApiError {
+export interface ErrorResult {
   message: string;
-  errors?: Record<string, string[]>;
+  errors?: {
+    [key: string]: string[];
+  };
 }

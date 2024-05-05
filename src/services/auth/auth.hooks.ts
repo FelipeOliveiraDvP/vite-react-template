@@ -1,10 +1,9 @@
-import { useMutation } from '@tanstack/react-query';
-import { notifications } from '@mantine/notifications';
-import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 import { useAuthContext } from '@/context/auth';
 import { setAuthToken } from '@/context/auth/helpers';
-import { getFormErrors } from '@/utils';
+import { getErrorMessage, getFormErrors } from '@/utils';
+import { useNotification } from '@/hooks';
 import authService from './auth.service';
 
 const { VITE_HOME } = import.meta.env;
@@ -12,6 +11,7 @@ const { VITE_HOME } = import.meta.env;
 export function useLogin() {
   const navigate = useNavigate();
   const { onLogin } = useAuthContext();
+  const { error: showError } = useNotification();
 
   return useMutation({
     mutationFn: authService.login,
@@ -19,13 +19,15 @@ export function useLogin() {
       onLogin && onLogin(data, () => navigate(VITE_HOME || '/app/usuarios'));
     },
     onError(error) {
-      return Promise.reject(getFormErrors(error as AxiosError));
+      showError(getErrorMessage(error));
+      return Promise.reject(getFormErrors(error));
     },
   });
 }
 
 export function useRecovery() {
   const navigate = useNavigate();
+  const { error: showError } = useNotification();
 
   return useMutation({
     mutationFn: authService.recovery,
@@ -33,13 +35,15 @@ export function useRecovery() {
       navigate('/verificar');
     },
     onError(error) {
-      return Promise.reject(getFormErrors(error as AxiosError));
+      showError(getErrorMessage(error));
+      return Promise.reject(getFormErrors(error));
     },
   });
 }
 
 export function useVerifyCode() {
   const navigate = useNavigate();
+  const { error: showError } = useNotification();
 
   return useMutation({
     mutationFn: authService.verifyCode,
@@ -47,7 +51,8 @@ export function useVerifyCode() {
       navigate('/alterar-senha');
     },
     onError(error) {
-      return Promise.reject(getFormErrors(error as AxiosError));
+      showError(getErrorMessage(error));
+      return Promise.reject(getFormErrors(error));
     },
   });
 }
@@ -55,6 +60,7 @@ export function useVerifyCode() {
 export function useResetPassword() {
   const navigate = useNavigate();
   const { user, onLogin } = useAuthContext();
+  const { error: showError, success } = useNotification();
 
   return useMutation({
     mutationFn: authService.resetPassword,
@@ -65,13 +71,11 @@ export function useResetPassword() {
       }
 
       setAuthToken(data.token);
-      notifications.show({
-        message: 'Senha alterada com sucesso.',
-        color: 'green',
-      });
+      success('Senha alterada com sucesso.');
     },
     onError(error) {
-      return Promise.reject(getFormErrors(error as AxiosError));
+      showError(getErrorMessage(error));
+      return Promise.reject(getFormErrors(error));
     },
   });
 }

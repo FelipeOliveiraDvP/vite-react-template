@@ -1,31 +1,26 @@
-import { AxiosError, isAxiosError } from 'axios';
+import { isAxiosError } from 'axios';
+import { ErrorResult } from '@/types';
 
-type ErrorResponseType = { message: string };
+export function getErrorMessage<T>(error: T, fallback?: string) {
+  if (!isAxiosError(error)) return fallback || 'Algum erro ocorreu.';
 
-type FormErrorsType<T> = Record<keyof T, string[]>;
-
-type ApiResponseErrors<T> = ErrorResponseType & { errors: FormErrorsType<T> };
-
-const DEFAULT_ERROR_MESSAGE = 'Algum erro ocorreu';
-
-export function getErrorMessage(error: AxiosError, fallback?: string) {
-  if (!isAxiosError(error)) return fallback || DEFAULT_ERROR_MESSAGE;
-
-  const errorResponse = error.response?.data as ErrorResponseType;
+  const errorResponse = error.response?.data as ErrorResult;
 
   if ('message' in errorResponse) return errorResponse.message;
 
-  return DEFAULT_ERROR_MESSAGE;
+  return 'Algum erro ocorreu.';
 }
 
-export function getFormErrors<T>(error: AxiosError) {
+export function getFormErrors<T>(error: T) {
   if (!isAxiosError(error) || !error.response) return {};
 
-  const { errors: formErrors } = error.response?.data as ApiResponseErrors<T>;
+  const { errors } = error.response?.data as ErrorResult;
 
-  return Object.entries(formErrors)
-    .map(([field, errors]) => ({
-      [field]: (errors as string[])[0],
+  if (!errors) return {};
+
+  return Object.entries(errors)
+    .map(([field, fieldErrors]) => ({
+      [field]: (fieldErrors as string[])[0],
     }))
     .reduce((result, item) => {
       const key = Object.keys(item)[0];

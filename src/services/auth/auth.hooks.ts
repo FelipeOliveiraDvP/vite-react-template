@@ -11,7 +11,7 @@ const { VITE_HOME } = import.meta.env;
 export function useLogin() {
   const navigate = useNavigate();
   const { onLogin } = useAuthContext();
-  const { error: showError } = useNotification();
+  const notification = useNotification();
 
   return useMutation({
     mutationFn: authService.login,
@@ -19,7 +19,7 @@ export function useLogin() {
       onLogin && onLogin(data, () => navigate(VITE_HOME || '/app/usuarios'));
     },
     onError(error) {
-      showError(getErrorMessage(error));
+      notification.error(getErrorMessage(error));
       return Promise.reject(getFormErrors(error));
     },
   });
@@ -27,7 +27,7 @@ export function useLogin() {
 
 export function useRecovery() {
   const navigate = useNavigate();
-  const { error: showError } = useNotification();
+  const notification = useNotification();
 
   return useMutation({
     mutationFn: authService.recovery,
@@ -35,7 +35,7 @@ export function useRecovery() {
       navigate('/verificar');
     },
     onError(error) {
-      showError(getErrorMessage(error));
+      notification.error(getErrorMessage(error));
       return Promise.reject(getFormErrors(error));
     },
   });
@@ -43,7 +43,7 @@ export function useRecovery() {
 
 export function useVerifyCode() {
   const navigate = useNavigate();
-  const { error: showError } = useNotification();
+  const notification = useNotification();
 
   return useMutation({
     mutationFn: authService.verifyCode,
@@ -51,7 +51,7 @@ export function useVerifyCode() {
       navigate('/alterar-senha');
     },
     onError(error) {
-      showError(getErrorMessage(error));
+      notification.error(getErrorMessage(error));
       return Promise.reject(getFormErrors(error));
     },
   });
@@ -59,8 +59,8 @@ export function useVerifyCode() {
 
 export function useResetPassword() {
   const navigate = useNavigate();
+  const notification = useNotification();
   const { user, onLogin } = useAuthContext();
-  const { error: showError, success } = useNotification();
 
   return useMutation({
     mutationFn: authService.resetPassword,
@@ -71,10 +71,10 @@ export function useResetPassword() {
       }
 
       setAuthToken(data.token);
-      success('Senha alterada com sucesso.');
+      notification.success('Senha alterada com sucesso.');
     },
     onError(error) {
-      showError(getErrorMessage(error));
+      notification.error(getErrorMessage(error));
       return Promise.reject(getFormErrors(error));
     },
   });

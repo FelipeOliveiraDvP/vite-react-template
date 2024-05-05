@@ -19,10 +19,6 @@ export const LoginRequestSchema = z.object({
   password: PasswordSchema,
 });
 
-export const LoginResponseSchema = z.object({
-  token: z.string(),
-});
-
 export const RecoveryRequestSchema = z.object({
   email: EmailSchema,
 });
@@ -42,20 +38,3 @@ export const ResetPasswordRequestSchema = z
     message: ZOD_PASS_CONFIRM_MESSAGE,
     path: ['password_confirm'],
   });
-
-export const AuthUserSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  email: EmailSchema,
-  role: z.object({
-    id: z.string(),
-    name: z.string(),
-  }),
-});
-
-export type LoginRequest = z.infer<typeof LoginRequestSchema>;
-export type LoginResponse = z.infer<typeof LoginResponseSchema>;
-export type RecoveryRequest = z.infer<typeof RecoveryRequestSchema>;
-export type VerifyCodeRequest = z.infer<typeof VerifyCodeRequestSchema>;
-export type ResetPasswordRequest = z.infer<typeof ResetPasswordRequestSchema>;
-export type AuthUser = z.infer<typeof AuthUserSchema>;

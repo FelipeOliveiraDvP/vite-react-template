@@ -1,7 +1,7 @@
-import { LoginResponse } from '@/services/auth';
+import { AuthResponse } from '@/services/auth';
 import { ErrorResult } from '@/types';
 
-export const loginSuccess: LoginResponse = {
+export const loginSuccess: AuthResponse = {
   token:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlkIjoiM2ZhODVmNjQtNTcxNy00NTYyLWIzZmMtMmM5NjNmNjZhZmE2IiwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJyb2xlIjp7ImlkIjoiM2ZhODVmNjQtNTcxNy00NTYyLWIzZmMtMmM5NjNmNjZhZmE2IiwibmFtZSI6IkFkbWluaXN0cmFkb3IifX0.B6_7MZh16tGII_gqkUOTxK9Dz48Goge9zAkOH_-vo_w',
 };

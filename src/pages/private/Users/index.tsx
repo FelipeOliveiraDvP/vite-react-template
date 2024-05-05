@@ -1,9 +1,9 @@
 import { Button, Group, Paper, Stack, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { RiAddLine } from 'react-icons/ri';
-import { UsersFilters } from '@/components/users/UsersFilters/UsersFilters';
-import { UsersList } from '@/components/users/UsersList/UsersList';
-import { UsersModal } from '@/components/users/UsersModal/UsersModal';
+import { UsersFilters } from '@/components/users/UsersFilters';
+import { UsersList } from '@/components/users/UsersList';
+import { UsersModal } from '@/components/users/UsersModal';
 
 export default function UsersPage() {
   const [opened, { open, close }] = useDisclosure(false);

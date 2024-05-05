@@ -1,24 +1,24 @@
 import axios from '@/config/axios';
 import {
+  AuthResponse,
   LoginRequest,
-  LoginResponse,
   RecoveryRequest,
   ResetPasswordRequest,
   VerifyCodeRequest,
-} from './auth.schemas';
+} from './auth.types';
 import { AUTH_CONTROLLER } from './auth.constants';
 
 export default {
-  async login(data: LoginRequest): Promise<LoginResponse> {
+  async login(data: LoginRequest): Promise<AuthResponse> {
     const result = (await axios.post(`${AUTH_CONTROLLER}/login`, data)) as unknown;
 
-    return result as LoginResponse;
+    return result as AuthResponse;
   },
 
-  async refresh(): Promise<LoginResponse> {
+  async refresh(): Promise<AuthResponse> {
     const result = (await axios.post(`${AUTH_CONTROLLER}/refresh`)) as unknown;
 
-    return result as LoginResponse;
+    return result as AuthResponse;
   },
 
   async recovery(data: RecoveryRequest): Promise<unknown> {
@@ -33,9 +33,9 @@ export default {
     return result;
   },
 
-  async resetPassword(data: ResetPasswordRequest): Promise<LoginResponse> {
+  async resetPassword(data: ResetPasswordRequest): Promise<AuthResponse> {
     const result = (await axios.post(`${AUTH_CONTROLLER}/reset`, data)) as unknown;
 
-    return result as LoginResponse;
+    return result as AuthResponse;
   },
 };

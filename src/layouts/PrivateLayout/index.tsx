@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { AppShell, Box, Burger, Center, Group, Image, Stack } from '@mantine/core';
+import { AppShell, Box, Burger, Center, Group, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 import { PageLoader } from '@/components/layouts/PageLoader';
@@ -8,7 +8,8 @@ import { UserDropdown } from '@/components/layouts/PrivateLayout/UserDropdown';
 import { PrivateMenu } from '@/components/layouts/PrivateLayout/PrivateMenu';
 import { useAuthContext } from '@/context/auth';
 
-import logo from '@/assets/logo-white.png';
+// NOTE: Import the logo for the sidebar.
+// EX: import logo from '@/assets/logo-white.png';
 
 export function PrivateLayout() {
   const { user } = useAuthContext();
@@ -48,7 +49,8 @@ export function PrivateLayout() {
             <Group justify="space-between" p="md" h="100%">
               <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" color="white" />
               <Center w={{ md: '100%' }} h={{ md: '100%' }}>
-                <Image src={logo} w={{ base: 58, md: 100 }} />
+                {/* NOTE: Add a image to display the logo. */}
+                {/* EX: <Image src={logo} w={{ base: 58, md: 100 }} /> */}
               </Center>
             </Group>
           </Box>

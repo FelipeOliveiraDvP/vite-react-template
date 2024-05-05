@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
-import { AuthUser, AuthUserSchema, LoginResponse } from '@/services/auth';
+import { AuthUser, AuthResponse } from '@/services/auth';
 import { getAuthToken, removeAuthToken, setAuthToken } from './helpers';
 
 const initialState: AuthStateType = {
@@ -13,13 +13,13 @@ const AuthContext = createContext<AuthStateType>(initialState);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<AuthStateType>(initialState);
 
-  function handleLogin(result: LoginResponse, cb: VoidFunction) {
+  function handleLogin(result: AuthResponse, cb: VoidFunction) {
     const { token } = result;
     const decodedUser = getUserFromToken(token);
 
     if (decodedUser) {
       setAuthToken(token);
-      setState((prev) => ({ ...prev, user: decodedUser, authenticate: true }));
+      setState((prev) => ({ ...prev, user: decodedUser as AuthUser, authenticate: true }));
       cb();
     }
   }
@@ -34,7 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       if (!token) return null;
 
-      return AuthUserSchema.parse(jwtDecode(token));
+      return jwtDecode(token);
     } catch (error) {
       return null;
     }
@@ -45,7 +45,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const decodedUser = getUserFromToken(token);
 
     if (decodedUser) {
-      setState((prev) => ({ ...prev, user: decodedUser, authenticate: true }));
+      setState((prev) => ({ ...prev, user: decodedUser as AuthUser, authenticate: true }));
     }
   }, []);
 
@@ -63,6 +63,6 @@ export function useAuthContext() {
 export type AuthStateType = {
   user: AuthUser | null;
   authenticate: boolean;
-  onLogin?: (result: LoginResponse, cb: VoidFunction) => void;
+  onLogin?: (result: AuthResponse, cb: VoidFunction) => void;
   onLogout?: (cb: VoidFunction) => void;
 };

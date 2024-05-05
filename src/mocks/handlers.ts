@@ -30,6 +30,7 @@ export const handlers = [
     await delay(400);
 
     if (email === 'admin@email.com') {
+      console.error('O código de verificação é 1234');
       return HttpResponse.json(undefined, { status: 204 });
     }
 

@@ -22,7 +22,11 @@ export function ResetForm() {
   const mutation = useResetPassword();
 
   async function handleSubmit(values: ResetPasswordRequest) {
-    await mutation.mutateAsync(values);
+    try {
+      await mutation.mutateAsync(values);
+    } catch (error) {
+      form.setErrors(error as {});
+    }
   }
 
   return (

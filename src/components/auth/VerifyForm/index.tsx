@@ -17,7 +17,11 @@ export function VerifyForm() {
   const mutation = useVerifyCode();
 
   async function handleSubmit(values: VerifyCodeRequest) {
-    await mutation.mutateAsync(values);
+    try {
+      await mutation.mutateAsync(values);
+    } catch (error) {
+      form.setErrors(error as {});
+    }
   }
 
   return (

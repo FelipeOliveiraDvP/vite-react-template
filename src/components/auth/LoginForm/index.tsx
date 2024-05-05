@@ -19,7 +19,11 @@ export function LoginForm() {
   const mutation = useLogin();
 
   async function handleSubmit(values: LoginRequest) {
-    await mutation.mutateAsync(values);
+    try {
+      await mutation.mutateAsync(values);
+    } catch (error) {
+      form.setErrors(error as {});
+    }
   }
 
   return (

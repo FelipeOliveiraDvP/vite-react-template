@@ -17,7 +17,11 @@ export function RecoveryForm() {
   const mutation = useRecovery();
 
   async function handleSubmit(values: RecoveryRequest) {
-    await mutation.mutateAsync(values);
+    try {
+      await mutation.mutateAsync(values);
+    } catch (error) {
+      form.setErrors(error as {});
+    }
   }
 
   return (
